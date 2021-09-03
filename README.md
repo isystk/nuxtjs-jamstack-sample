@@ -71,11 +71,14 @@ yarn start
 
 ## firebase deploy
 
-yarn global add firebase-tools
-firebase login
-firebase init
-yarn generate
-firebase deploy
+$ firebase login
+（Firebase Hosting未設定の場合）
+$ firebase init hosting
+（Firebase Hosting設定済の場合）
+$ firebase init hosting:github
+
+$ yarn generate
+$ firebase deploy
 
 https://nuxtjs-jamstack-sample.web.app
 
