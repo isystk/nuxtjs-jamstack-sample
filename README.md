@@ -82,7 +82,11 @@ $ firebase deploy
 
 https://nuxtjs-jamstack-sample.web.app
 
-
+`FIREBASE_TOKEN` の確認
+$ firebase login:ci
+```
+1//xxxxxxxxxxxxxxxxxxxx
+```
 
 ## 参考
 「microCMS + NuxtでJamstackブログを作ってみよう」

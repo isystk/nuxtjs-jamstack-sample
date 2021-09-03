@@ -32,4 +32,4 @@ jobs:
       with:
         args: deploy
       env:
-        FIREBASE_TOKEN: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_NUXTJS_JAMSTACK_SAMPLE }}
+        FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
