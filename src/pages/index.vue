@@ -7,7 +7,7 @@
       <p>すべての投稿を一覧表示しています。</p>
       <div class="box-list">
         <section v-for="e in contents" :key="e.id">
-          <NuxtLink :to="`/posts/${e.id}`">
+          <NuxtLink :to="e.id">
             <div class="entry-header">
               <div class="category_NuxtLink">{{ e.tagName }}</div>
               <h2 class="entry-title">{{ e.title }}</h2>
