@@ -1,8 +1,22 @@
 import axios from 'axios'
 
+const pkg = require("./package");
+
+require("dotenv").config();
+
 export default {
   // Target: https://go.nuxtjs.dev/config-target
   target: 'static',
+  srcDir: "src/",
+
+  /**
+   * 環境変数
+   * ビルド時に渡される env の値は、ここに記載することで文字列に置換される
+   */
+  publicRuntimeConfig: {
+    APP_NAME: pkg.name,
+    APP_DESCRIPTION: pkg.description,
+  },
 
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
@@ -16,6 +30,9 @@ export default {
       { hid: 'description', name: 'description', content: '' },
       { name: 'format-detection', content: 'telephone=no' }
     ],
+    bodyAttrs: {
+      class: 'column1'
+    },
     link: [
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
     ]
@@ -23,6 +40,7 @@ export default {
 
   // Global CSS: https://go.nuxtjs.dev/config-css
   css: [
+  "@/assets/sass/app.scss"
   ],
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
@@ -30,7 +48,12 @@ export default {
   ],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
-  components: true,
+  components: [
+    {
+      path: '@/components/',
+      pathPrefix: false
+    }
+  ],
 
   // Modules for dev and build (recommended): https://go.nuxtjs.dev/config-modules
   buildModules: [

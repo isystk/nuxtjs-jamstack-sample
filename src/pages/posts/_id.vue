@@ -1,9 +1,30 @@
 <template>
-  <main class="main">
-    <h1 class="title">{{ title }}</h1>
-    <p class="publishedAt">{{ publishedAt }}</p>
-    <div class="post" v-html="body"></div>
-  </main>
+  <section>
+    <nav class="breadcrumb">
+      <ul>
+        <li>
+          <NuxtLink to="/">
+            <span>HOME</span>
+          </NuxtLink>
+        </li>
+        <li>{{ title }}</li>
+      </ul>
+    </nav>
+    <div class="entry-header">
+      <h1 class="entry-title">{{ title }}</h1>
+      <div class="article-img">
+        <img alt="sample1" width="644" :src="photo.url" />
+      </div>
+      <div class="clearfix"></div>
+    </div>
+    <div class="entry-content" v-html="description">
+    </div>
+    <div class="clearfix"></div>
+    <div class="entry-meta">
+      <i class="fas fa-clock" :style="{ fontSize: '16px' }"></i>
+      {{ regist_datetime_yyyymmdd }}
+    </div>
+  </section>
 </template>
 
 <script lang="ts">
@@ -15,10 +36,10 @@ export default class Detail extends Vue {
   async asyncData({
     params
   }: {
-    params: {slug: string}
+    params: {id: string}
   }): Promise<{ title: string }> {
     const { data } = await axios.get(
-      `https://isystk.microcms.io/api/v1/blog/${params.slug}`,
+      `https://isystk.microcms.io/api/v1/blog/${params.id}`,
       {
         headers: { 'X-API-KEY': 'a1214110-aa08-4a07-9b56-7866b705d077' }
       }

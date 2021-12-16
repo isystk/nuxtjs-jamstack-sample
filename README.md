@@ -81,13 +81,17 @@ Incremental Static Regenerationの略称で日本語に直すと、段階的に�
 
 https://nuxtjs-jamstack-sample.web.app
 
+![app](./app.png)
+
 ## 🖊️ 記事の投稿
 [MicroCMS](https://isystk.microcms.io/apis/blog)
+
+![microcms](./microcms.png)
 
 
 記事を投稿した際に`GithubAction`に連携して静的サイトを生成させてFirebaseのHostingにデプロイしています。
 
-![microcms](./microcms.png)
+![Github Action](./github-action.png)
 
 
 
@@ -105,6 +109,7 @@ $ yarn start
 
 ## 💬 Firebaseへのデプロイ手順
 ```
+$ npm install -g firebase-tools
 $ firebase login
 （Firebase Hosting未設定の場合）
 $ firebase init hosting
