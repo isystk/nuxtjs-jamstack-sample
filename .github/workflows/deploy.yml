@@ -1,4 +1,4 @@
-name: Node.js CI
+name: Deploy
 
 on:
   push:
@@ -30,14 +30,15 @@ jobs:
     - name: Run tests 🧪
       run: yarn test
 
-    - name: Run Build
-      run: yarn generate
-
     - name: Generate static page
       env:
         MICRO_CMS_API_KEY: ${{ secrets.MICRO_CMS_API_KEY }}
         MICRO_CMS_API_URL: ${{ secrets.MICRO_CMS_API_URL }}
       run: yarn generate
 
-    - name: Deploy to Firebase Hosting
-      run: yarn deploy --token=${{ secrets.FIREBASE_TOKEN }}
+    - name: deploy to Firebase Hosting
+      uses: w9jds/firebase-action@master
+      with:
+        args: deploy
+      env:
+        FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
