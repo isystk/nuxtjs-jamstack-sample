@@ -1,0 +1,43 @@
+name: Node.js CI
+
+on:
+  push:
+    branches: [ master ]
+  repository_dispatch:
+    branches: [ master ]
+    types: [blog_post]
+
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node-version: [14.x]
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: Use Node.js ${{ matrix.node-version }}
+      uses: actions/setup-node@v1
+      with:
+        node-version: ${{ matrix.node-version }}
+
+    - name: Install dependencies 👨🏻‍💻
+      run: yarn
+
+    - name: Run tests 🧪
+      run: yarn test
+
+    - name: Run Build
+      run: yarn generate
+
+    - name: Generate static page
+      env:
+        MICRO_CMS_API_KEY: ${{ secrets.MICRO_CMS_API_KEY }}
+        MICRO_CMS_API_URL: ${{ secrets.MICRO_CMS_API_URL }}
+      run: yarn generate
+
+    - name: Deploy to Firebase Hosting
+      run: yarn deploy --token=${{ secrets.FIREBASE_TOKEN }}
