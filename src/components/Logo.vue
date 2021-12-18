@@ -2,7 +2,7 @@
   <div class="header-logo">
     <h1>
       <NuxtLink to="/">
-        {{ $config.APP_NAME }}
+        microcms-nuxt-jamstack-blog
       </NuxtLink>
     </h1>
   </div>
