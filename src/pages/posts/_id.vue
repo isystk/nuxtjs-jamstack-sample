@@ -34,14 +34,16 @@ import axios from 'axios'
 @Component
 export default class Detail extends Vue {
   async asyncData({
-    params
+    params,
+    $config
   }: {
-    params: {id: string}
+    params: {id: string},
+    $config: {MICRO_CMS_API_URL: string, MICRO_CMS_API_KEY: string}
   }): Promise<{ title: string }> {
     const { data } = await axios.get(
-      `https://isystk.microcms.io/api/v1/blog/${params.id}`,
+      `${$config.MICRO_CMS_API_URL}/${params.id}`,
       {
-        headers: { 'X-API-KEY': 'a1214110-aa08-4a07-9b56-7866b705d077' }
+        headers: { 'X-API-KEY': $config.MICRO_CMS_API_KEY }
       }
     )
     return data

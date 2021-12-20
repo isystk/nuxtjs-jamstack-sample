@@ -16,6 +16,8 @@ export default {
   publicRuntimeConfig: {
     APP_NAME: pkg.name,
     APP_DESCRIPTION: pkg.description,
+    MICRO_CMS_API_KEY: process.env.MICRO_CMS_API_KEY,
+    MICRO_CMS_API_URL: process.env.MICRO_CMS_API_URL,
   },
 
   // Global page headers: https://go.nuxtjs.dev/config-head
@@ -74,8 +76,8 @@ export default {
   generate: {
     async routes() {
       const pages = await axios
-        .get('https://isystk.microcms.io/api/v1/blog?limit=100', {
-          headers: { 'X-API-KEY': 'a1214110-aa08-4a07-9b56-7866b705d077' }
+        .get(process.env.MICRO_CMS_API_URL, {
+          headers: { 'X-API-KEY': process.env.MICRO_CMS_API_KEY }
         })
         .then((res) =>
           res.data.contents.map((content) => ({

@@ -36,11 +36,11 @@
 <script lang="ts">
 import axios from 'axios'
 export default {
-  async asyncData() {
+  async asyncData({$config}: {$config: {MICRO_CMS_API_URL: string, MICRO_CMS_API_KEY: string}}) {
     const { data } = await axios.get(
-      'https://isystk.microcms.io/api/v1/blog',
+      $config.MICRO_CMS_API_URL,
       {
-        headers: { 'X-API-KEY': 'a1214110-aa08-4a07-9b56-7866b705d077' }
+        headers: { 'X-API-KEY': $config.MICRO_CMS_API_KEY }
       }
     )
     return data
