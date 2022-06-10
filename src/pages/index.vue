@@ -1,50 +1,57 @@
 <template>
-  <section>
-    <div class="entry-header">
-      <h1 class="entry-title">HOME</h1>
-    </div>
-    <div class="entry-content">
-      <p>すべての投稿を一覧表示しています。</p>
-      <div class="box-list">
-        <section v-for="e in contents" :key="e.id">
-          <NuxtLink :to="`posts/${e.id}`">
-            <div class="entry-header">
-              <div class="category_NuxtLink">{{ e.tagName }}</div>
-              <h2 class="entry-title">{{ e.title }}</h2>
-              <div class="entry-meta">
-                <span>{{ e.regist_datetime_yyyymmdd }}</span>
-              </div>
-            </div>
-            <div class="entry-content">
-              <img
-                alt="sample1"
-                width="300"
-                height="174"
-                :src="e.photo.url"
-                class="attachment-medium size-medium wp-post-image"
-              />
-              <div v-html="e.description"></div>
-              <div class="clearfix"></div>
-            </div>
-          </NuxtLink>
-        </section>
-      </div>
-    </div>
-  </section>
+  <v-card class="mx-auto">
+    <v-container fluid>
+      <v-row dense>
+        <v-col v-for="data in posts" :key="data.id" cols="12" md="4">
+          <v-card>
+            <NuxtLink :to="`${Url.POSTS}/${data.id}`">
+              <v-img
+                :src="data.photo.url"
+                style="width: 92vw; height: 50vh"
+                cover
+              >
+                <v-card-title class="text-white">
+                  {{ data.title }}
+                </v-card-title>
+              </v-img>
+
+              <v-card-actions>
+                <v-spacer />
+                <v-btn
+                  size="small"
+                  color="surface-variant"
+                  variant="text"
+                  icon="mdi-heart"
+                />
+              </v-card-actions>
+            </NuxtLink>
+          </v-card>
+        </v-col>
+      </v-row>
+    </v-container>
+  </v-card>
 </template>
 
-<script lang="ts">
-import axios from 'axios'
-export default {
-  async asyncData({$config}: {$config: {MICRO_CMS_API_URL: string, MICRO_CMS_API_KEY: string}}) {
-    console.log($config)
-    const { data } = await axios.get(
-      $config.MICRO_CMS_API_URL,
-      {
-        headers: { 'X-MICROCMS-API-KEY': $config.MICRO_CMS_API_KEY }
-      }
-    )
-    return data
-  }
-}
+<script setup lang="ts">
+import { computed, onBeforeMount } from 'vue'
+import * as _ from 'lodash'
+import { useMeta } from 'nuxt/app'
+useMeta({
+  title: 'Top',
+})
+import { Url } from '@/constants/url'
+import { injectStore } from '@/store'
+const main = injectStore()
+onBeforeMount(async () => {
+  // 投稿一覧の取得
+  await main?.post?.readPosts()
+})
+const posts = computed(() => main?.post?.posts)
+// const { contents } = await useAsyncData('post', () => $fetch(import.meta.env.VITE_MICRO_CMS_API_URL, {
+//   headers: {
+//     'X-MICROCMS-API-KEY': import.meta.env.VITE_MICRO_CMS_API_KEY
+//   }
+// }).catch((e) => {
+//   console.log(e)
+// }));
 </script>

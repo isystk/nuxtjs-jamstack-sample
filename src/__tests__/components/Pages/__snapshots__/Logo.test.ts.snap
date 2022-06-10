@@ -1,0 +1,13 @@
+// Vitest Snapshot v1
+
+exports[`Logo 1`] = `
+<nuxtlink
+  to="/"
+>
+  <v-toolbar-title
+    class="w-64"
+  >
+    nuxt3-jamstack-blog
+  </v-toolbar-title>
+</nuxtlink>
+`;

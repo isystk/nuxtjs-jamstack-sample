@@ -1,0 +1,69 @@
+[
+  {
+    "title": "Webシステムにおける開発能力",
+    "type": "radar",
+    "items" : [
+      {
+        "label": "スピード感",
+        "color": "#FF0000",
+        "data": 100
+      },
+      {
+        "label": "精度",
+        "color": "#FFFF00",
+        "data": 80
+      },
+      {
+        "label": "セキュリティ対応",
+        "color": "#00FFFF",
+        "data": 70
+      },
+      {
+        "label": "デザイン力",
+        "color": "#800000",
+        "data": 50
+      },
+      {
+        "label": "SEO",
+        "color": "#C0C0C0",
+        "data": 80
+      }
+    ]
+  },
+  {
+    "title": "プログラミングの得意言語",
+    "type": "doughnut",
+    "items" : [
+      {
+        "label": "java",
+        "color": "#FF0000",
+        "data": 30
+      },
+      {
+        "label": "PHP(Laravel)",
+        "color": "#FF00FF",
+        "data": 25
+      },
+      {
+        "label": "Jquery",
+        "color": "#FFFF00",
+        "data": 15
+      },
+      {
+        "label": "React.js",
+        "color": "#C0C0C0",
+        "data": 15
+      },
+      {
+        "label": "Vue.js",
+        "color": "#00FFFF",
+        "data": 5
+      },
+      {
+        "label": "Typescript",
+        "color": "#800000",
+        "data": 10
+      }
+    ]
+  }
+]

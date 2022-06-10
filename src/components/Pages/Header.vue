@@ -1,0 +1,78 @@
+<template>
+  <div>
+    <v-app-bar class="overflow-visible" color="primary" prominent>
+      <pages-logo />
+      <v-spacer />
+
+      <NuxtLink :to="Url.LOGIN" class="invisible md:visible">
+        ログイン
+      </NuxtLink>
+
+      <v-app-bar-nav-icon
+        variant="text"
+        class="visible md:invisible"
+        @click.stop="toggleMenu"
+      />
+    </v-app-bar>
+
+    <v-navigation-drawer v-model="drawer" bottom temporary position="right">
+      <v-list>
+        <v-list-item
+          prepend-avatar="/images/user_dummy.png"
+          :title="name"
+          subtitle="Logged in"
+        />
+      </v-list>
+      <v-divider />
+      <v-list density="compact">
+        <v-list-subheader>Menu</v-list-subheader>
+        <v-list-item-group>
+          <v-list-item
+            v-for="(item, i) in items"
+            :key="i"
+            :value="item"
+            active-color="primary"
+            @click="item.func"
+          >
+            <v-list-item-avatar start>
+              <v-icon :icon="item.icon" />
+            </v-list-item-avatar>
+            <v-list-item-title>{{ item.text }}</v-list-item-title>
+          </v-list-item>
+        </v-list-item-group>
+      </v-list>
+    </v-navigation-drawer>
+  </div>
+</template>
+
+<script setup lang="ts">
+import { computed, ref } from 'vue'
+import { useRouter } from 'nuxt/app'
+import { Url } from '@/constants/url'
+import MainService from '@/services/main'
+const props = defineProps<{
+  store: MainService
+}>()
+
+const router = useRouter()
+const drawer = ref(false)
+
+const toggleMenu = () => {
+  drawer.value = !drawer.value
+}
+
+const items = computed(() => {
+  return [
+    {
+      text: 'ログイン',
+      icon: 'mdi-login-variant',
+      func: () => router.push(Url.LOGIN),
+    },
+    {
+      text: 'マイページ',
+      icon: 'mdi-account',
+      func: () => router.push(Url.MEMBER),
+    },
+  ]
+})
+</script>

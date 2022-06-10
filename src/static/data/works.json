@@ -1,0 +1,81 @@
+[
+  {
+    "title": "isystk's blog",
+    "text": "私が運営しているブログです。\n主にITエンジニアとして学んだ事を掲載しています。",
+    "url": "https://blog.isystk.com/",
+    "imageUrl": "/img/blog-site.jpg"
+  },
+  {
+    "title": "Laravel＆React.js Boilerplate",
+    "text": "Laravel＆React.jsで作成した簡易的なECサイトのアプリケーションです。フロント画面で購入した商品を管理画面の注文履歴で閲覧したり、在庫の管理を行うことが出来ます。",
+    "url": "https://blog.isystk.com/web_production/boilerplate/1472/",
+    "imageUrl": "/img/laravel-react-boilerplate.jpg"
+  },
+  {
+    "title": "Java Springboot Boilerplate",
+    "text": "大規模プロジェクトでも利用できるようなSpringBootのボイラープレートを作成しました。フロント、管理画面、バッチ、検索エンジン、会員登録 などのよくある構成を最低限の機能に絞ってコンパクトに纏めています。",
+    "url": "https://blog.isystk.com/system_develop/backend/springboot/722/",
+    "imageUrl": "/img/java-springboot-boilerplate.jpg"
+  },
+  {
+    "title": "Nuxt.js JamStack Sample",
+    "text": "MicroCMS と Nuxt.js を利用してJamStackなWebアプリケーションを作成しました。",
+    "url": "https://blog.isystk.com/web_production/vue/1642/",
+    "imageUrl": "/img/nuxtjs-jamstack-sample.jpg"
+  },
+  {
+    "title": "Next.js Typescript Firebase",
+    "text": "Firebase を利用して Next.js でWebアプリケーションを作成ました。",
+    "url": "https://blog.isystk.com/web_production/react/1659/",
+    "imageUrl": "/img/nextjs-typescript-firebase.jpg"
+  },
+  {
+    "title": "Alexa Twitter Trends",
+    "text": "AWS Lambda を利用して AlexaでTwitterのトレンドをお知らせするスキルを作成しました。",
+    "url": "https://blog.isystk.com/web_production/alexa/1669/",
+    "imageUrl": "/img/alexa-twitter-trends.jpg"
+  },
+  {
+    "title": "Nuxt3 Typescript AWS",
+    "text": "Nuxt.js3 を利用してWebアプリケーションを作成しました。",
+    "url": "https://blog.isystk.com/web_production/vue/1675/",
+    "imageUrl": "/img/nuxt3-typescript-aws.jpg"
+  },
+  {
+    "title": "Next.js WebRTC Sample",
+    "text": "Next.js で Web-RTC を利用したZoomのようなビデオ通話アプリを作成しました。",
+    "url": "https://blog.isystk.com/web_production/react/1685/",
+    "imageUrl": "/img/nextjs-webrtc-sample.jpg"
+  },
+  {
+    "title": "Next.js Nest.js GraphQL",
+    "text": "Next.js & Nest.js & Prisma を利用してGraphQLを使ったアプリケーションを作成しました。",
+    "url": "https://blog.isystk.com/web_production/react/1696/",
+    "imageUrl": "/img/nextjs-nestjs-graphql.jpg"
+  },
+  {
+    "title": "Nuxt.js＆Typescript Boilerplate",
+    "text": "Nuxt.js Typescript ESLint を利用したボイラープレートです。チャート表示や画像カルーセル、モーダル表示など利用頻度の高い機能をサンプルとして纏めています。",
+    "url": "https://blog.isystk.com/web_production/boilerplate/1108/",
+    "imageUrl": "/img/nuxtjs-typescript-boilerplate.jpg"
+  },
+  {
+    "title": "クロスサイト・スクリプティング(XSS)の検証サンプル − XSSカイジ",
+    "text": "XSSの脆弱性を検証する為に作成したサンプルスクリプトです。Webサイト内にサニタイズ漏れがあると「ざわざわ」して最後に何かが起こります..。サンプルも公開しているので是非ご覧ください。",
+    "url": "https://blog.isystk.com/web_production/xss/214/",
+    "imageUrl": "/img/kaiji.gif"
+  },
+  {
+    "title": "自作のWordpress用テンプレートです。",
+    "text": "私が運営しているブログで利用している自作のWordpress用テンプレートです。SEO対策に最適化しており格安で販売しておりますのでご興味のある方はどうぞ。",
+    "url": "https://blog.isystk.com/web_production/wordpress/1085/",
+    "imageUrl": "/img/wordpress-template.jpg"
+  },
+  {
+    "title": "このポートフォリオサイトです。",
+    "text": "Vue.js(Nuxt.js)&Typescriptを利用してポートフォリオを作成しました。GithubにPushすると自動でCircleCIによってビルド・テストが実行されてVercelにデプロイされるようにしています。",
+    "url": "https://blog.isystk.com/web_production/portfolio/829/",
+    "imageUrl": "/img/portfolio.jpg"
+  }
+]
+
