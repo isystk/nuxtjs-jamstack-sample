@@ -1,5 +1,7 @@
 import MainService from '@/services/main'
 import { Post } from '@/services/models'
+import axios from 'axios'
+import * as _ from 'lodash'
 
 export type Data<T> = {
   id: string
@@ -20,11 +22,34 @@ export default class PostService {
   }
 
   async readPosts() {
-    console.log()
+    try {
+      const { data } = await axios.get(import.meta.env.VITE_MICRO_CMS_API_URL, {
+        headers: {
+          'X-MICROCMS-API-KEY': import.meta.env.VITE_MICRO_CMS_API_KEY,
+        },
+      })
+      this.posts = _.mapKeys(data.contents, 'id')
+    } catch (error) {
+      console.log('error read posts', error)
+      alert('データ取得に失敗しました')
+    }
   }
 
   async readPost(id: string) {
-    console.log()
+    try {
+      const { data } = await axios.get(
+        `${import.meta.env.VITE_MICRO_CMS_API_URL}/${id}`,
+        {
+          headers: {
+            'X-MICROCMS-API-KEY': import.meta.env.VITE_MICRO_CMS_API_KEY,
+          },
+        }
+      )
+      this.posts[id] = data
+    } catch (error) {
+      console.log('error read posts', error)
+      alert('データ取得に失敗しました')
+    }
   }
 
   getMyPosts() {

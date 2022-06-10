@@ -12,8 +12,6 @@ const nuxtConfig = defineNuxtConfig({
   publicRuntimeConfig: {
     APP_NAME: name,
     APP_DESCRIPTION: description,
-    MICRO_CMS_API_KEY: process.env.MICRO_CMS_API_KEY,
-    MICRO_CMS_API_URL: process.env.MICRO_CMS_API_URL,
   },
 
   // https://ja.nuxtjs.org/faq/host-port/
@@ -30,8 +28,8 @@ const nuxtConfig = defineNuxtConfig({
   // generate: {
   //   async routes() {
   //     const pages = await axios
-  //       .get(process.env.MICRO_CMS_API_URL, {
-  //         headers: { 'X-MICROCMS-API-KEY': process.env.MICRO_CMS_API_KEY }
+  //       .get(import.meta.env.VITE_MICRO_CMS_API_URL, {
+  //         headers: { 'X-MICROCMS-API-KEY': import.meta.env.VITE_MICRO_CMS_API_KEY }
   //       })
   //       .then((res) =>
   //         res.data.contents.map((content) => ({

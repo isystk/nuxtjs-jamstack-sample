@@ -5,7 +5,7 @@
         <v-col v-for="(data, postId) in posts" :key="postId" cols="12" md="4">
           <v-card>
             <NuxtLink :to="`${Url.POSTS}/${postId}`">
-              <v-img :src="data.photo" style="width: 92vw; height: 50vh" cover>
+              <v-img :src="data.photo.url" style="width: 92vw; height: 50vh" cover>
                 <v-card-title class="text-white">
                   {{ data.title }}
                 </v-card-title>
