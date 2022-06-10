@@ -43,7 +43,7 @@ export default class Detail extends Vue {
     const { data } = await axios.get(
       `${$config.MICRO_CMS_API_URL}/${params.id}`,
       {
-        headers: { 'X-API-KEY': $config.MICRO_CMS_API_KEY }
+        headers: { 'X-MICROCMS-API-KEY': $config.MICRO_CMS_API_KEY }
       }
     )
     return data

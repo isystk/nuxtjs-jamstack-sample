@@ -77,7 +77,7 @@ export default {
     async routes() {
       const pages = await axios
         .get(process.env.MICRO_CMS_API_URL, {
-          headers: { 'X-API-KEY': process.env.MICRO_CMS_API_KEY }
+          headers: { 'X-MICROCMS-API-KEY': process.env.MICRO_CMS_API_KEY }
         })
         .then((res) =>
           res.data.contents.map((content) => ({

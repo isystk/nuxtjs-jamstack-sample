@@ -37,10 +37,11 @@
 import axios from 'axios'
 export default {
   async asyncData({$config}: {$config: {MICRO_CMS_API_URL: string, MICRO_CMS_API_KEY: string}}) {
+    console.log($config)
     const { data } = await axios.get(
       $config.MICRO_CMS_API_URL,
       {
-        headers: { 'X-API-KEY': $config.MICRO_CMS_API_KEY }
+        headers: { 'X-MICROCMS-API-KEY': $config.MICRO_CMS_API_KEY }
       }
     )
     return data
