@@ -10,7 +10,7 @@
 </template>
 
 <script setup lang="ts">
-import {onBeforeMount, computed, ref, reactive} from 'vue'
+import { onBeforeMount, computed, ref, reactive } from 'vue'
 import { Post } from '@/services/models'
 import { injectStore } from '@/store'
 import { useMeta, useRoute } from 'nuxt/app'

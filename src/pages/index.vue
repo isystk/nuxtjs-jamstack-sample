@@ -5,7 +5,11 @@
         <v-col v-for="data in posts" :key="data.id" cols="12" md="4">
           <v-card>
             <NuxtLink :to="`${Url.POSTS}/${data.id}`">
-              <v-img :src="data.photo.url" style="width: 92vw; height: 50vh" cover>
+              <v-img
+                :src="data.photo.url"
+                style="width: 92vw; height: 50vh"
+                cover
+              >
                 <v-card-title class="text-white">
                   {{ data.title }}
                 </v-card-title>
@@ -43,7 +47,7 @@ onBeforeMount(async () => {
   await main?.post?.readPosts()
 })
 const posts = computed(() => main?.post?.posts)
-// const { data } = await useAsyncData('post', () => $fetch(import.meta.env.VITE_MICRO_CMS_API_URL, {
+// const { contents } = await useAsyncData('post', () => $fetch(import.meta.env.VITE_MICRO_CMS_API_URL, {
 //   headers: {
 //     'X-MICROCMS-API-KEY': import.meta.env.VITE_MICRO_CMS_API_KEY
 //   }
