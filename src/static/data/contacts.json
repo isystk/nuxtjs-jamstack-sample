@@ -1,0 +1,22 @@
+[
+  {
+    "name": "Twitter",
+    "linkUrl": "https://twitter.com/ise0615/",
+    "icon": "twitter"
+  },
+  {
+    "name": "Facebook",
+    "linkUrl": "https://www.facebook.com/ise0615/",
+    "icon": "facebook"
+  },
+  {
+    "name": "Instagram",
+    "linkUrl": "https://www.instagram.com/isystk/",
+    "icon": "instagram"
+  },
+  {
+    "name": "GitHub",
+    "linkUrl": "https://github.com/isystk/",
+    "icon": "github"
+  }
+]
