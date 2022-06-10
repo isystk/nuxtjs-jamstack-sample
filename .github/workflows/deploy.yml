@@ -32,8 +32,8 @@ jobs:
 
     - name: Generate static page
       env:
-        MICRO_CMS_API_KEY: ${{ secrets.MICRO_CMS_API_KEY }}
-        MICRO_CMS_API_URL: ${{ secrets.MICRO_CMS_API_URL }}
+        VITE_MICRO_CMS_API_KEY: ${{ secrets.VITE_MICRO_CMS_API_KEY }}
+        VITE_MICRO_CMS_API_URL: ${{ secrets.VITE_MICRO_CMS_API_URL }}
       run: yarn generate
 
     - name: deploy to Firebase Hosting
