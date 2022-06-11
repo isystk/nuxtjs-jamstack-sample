@@ -36,9 +36,9 @@ jobs:
         VITE_MICRO_CMS_API_URL: ${{ secrets.VITE_MICRO_CMS_API_URL }}
       run: yarn generate
 
-    - name: deploy to Firebase Hosting
-      uses: w9jds/firebase-action@master
+    - name: deploy to Github Page
+      uses: peaceiris/actions-gh-pages@v3
+      if: ${{ github.ref == 'refs/heads/main' }}
       with:
-        args: deploy
-      env:
-        FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        publish_dir: ./.output/public
