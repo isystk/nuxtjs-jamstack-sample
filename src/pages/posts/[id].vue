@@ -11,58 +11,47 @@
 
 <script setup lang="ts">
 import { onBeforeMount, computed, ref, reactive } from 'vue'
-import axios from 'axios'
 import { Post } from '@/services/models'
 import { injectStore } from '@/store'
 import { useMeta, useRoute } from 'nuxt/app'
 const main = injectStore()
 const route = useRoute()
 
-// const id = ref<string>()
-// const loading = ref<boolean>(true)
-// const store = reactive({post: {}})
-//
-// onBeforeMount(async () => {
-//   id.value = route.params.id + ''
-//   // 投稿詳細の取得
-//   // await main?.post?.readPost(id.value + '')
-//   const { data } = await useAsyncData('post', () => axios.get(`${import.meta.env.VITE_MICRO_CMS_API_URL}/${id.value}`, {
-//     headers: {
-//       'X-MICROCMS-API-KEY': import.meta.env.VITE_MICRO_CMS_API_KEY
-//     }
-//   }).catch((e) => {
-//     console.log(e)
-//   }));
-//   store.post = data
-//   // loading.value = false
-// })
-const { data } = await useAsyncData('post', () =>
-  axios
-    .get(`${import.meta.env.VITE_MICRO_CMS_API_URL}/${route.params.id}`, {
-      headers: {
-        'X-MICROCMS-API-KEY': import.meta.env.VITE_MICRO_CMS_API_KEY,
-      },
-    })
-    .then(response => {
-      return response.data
-    })
-)
-// const post = computed<Post>(() => {
-//   // const d = main?.post?.posts[id.value]
-//   const d = store.post
-//   if (!d) {
-//     return {
-//       userId: '',
-//       title: '',
-//       description: '',
-//       photo: '',
-//     }
-//   }
-//
-//   useMeta({
-//     title: d.title,
-//   })
-//
-//   return d
-// })
+const id = ref<string>()
+const loading = ref<boolean>(true)
+
+onBeforeMount(async () => {
+  id.value = route.params.id + ''
+  // 投稿詳細の取得
+  await main?.post?.readPost(id.value + '')
+  loading.value = false
+})
+// const { data } = await useAsyncData('post', () =>
+//   axios
+//     .get(`${import.meta.env.VITE_MICRO_CMS_API_URL}/${route.params.id}`, {
+//       headers: {
+//         'X-MICROCMS-API-KEY': import.meta.env.VITE_MICRO_CMS_API_KEY,
+//       },
+//     })
+//     .then(response => {
+//       return response.data
+//     })
+// )
+const data = computed<Post>(() => {
+  const d = main?.post?.posts[id.value]
+  if (!d) {
+    return {
+      userId: '',
+      title: '',
+      description: '',
+      photo: '',
+    }
+  }
+
+  useMeta({
+    title: d.title,
+  })
+
+  return d
+})
 </script>

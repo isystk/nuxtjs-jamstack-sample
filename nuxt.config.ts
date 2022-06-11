@@ -34,21 +34,21 @@ const nuxtConfig = defineNuxtConfig(async (): Promise<NuxtConfig> => {
       transpile: ['vuetify', 'moment'],
     },
     generate: {
-      routes: await (async () => {
-        const pages = await axios
-          .get(process.env.VITE_MICRO_CMS_API_URL, {
-            headers: {
-              'X-MICROCMS-API-KEY': process.env.VITE_MICRO_CMS_API_KEY,
-            },
-          })
-          .then((res) =>
-            res.data.contents.map((content) => ({
-              route: `/posts/${content.id}`,
-              payload: content,
-            }))
-          )
-        return pages
-      })(),
+      // routes: await (async () => {
+      //   const pages = await axios
+      //     .get(process.env.VITE_MICRO_CMS_API_URL, {
+      //       headers: {
+      //         'X-MICROCMS-API-KEY': process.env.VITE_MICRO_CMS_API_KEY,
+      //       },
+      //     })
+      //     .then((res) =>
+      //       res.data.contents.map((content) => ({
+      //         route: `/posts/${content.id}`,
+      //         payload: content,
+      //       }))
+      //     )
+      //   return pages
+      // })(),
     },
     intlify: {
       localeDir: 'locales',

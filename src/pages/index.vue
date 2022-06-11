@@ -2,7 +2,7 @@
   <v-card class="mx-auto">
     <v-container fluid>
       <v-row dense>
-        <v-col v-for="e in data" :key="e.id" cols="12" md="4">
+        <v-col v-for="e in posts" :key="e.id" cols="12" md="4">
           <v-card>
             <NuxtLink :to="`${Url.POSTS}/${e.id}`">
               <v-img :src="e.photo.url" style="width: 92vw; height: 50vh" cover>
@@ -37,22 +37,22 @@ useMeta({
   title: 'Top',
 })
 import { Url } from '@/constants/url'
-// import { injectStore } from '@/store'
-// const main = injectStore()
-// onBeforeMount(async () => {
-//   // 投稿一覧の取得
-//   await main?.post?.readPosts()
-// })
-// const posts = computed(() => main?.post?.posts)
-const {data} = await useAsyncData('posts', () =>
-  axios
-    .get(import.meta.env.VITE_MICRO_CMS_API_URL, {
-      headers: {
-        'X-MICROCMS-API-KEY': import.meta.env.VITE_MICRO_CMS_API_KEY,
-      },
-    })
-    .then(response => {
-      return response.data.contents
-    })
-)
+import { injectStore } from '@/store'
+const main = injectStore()
+onBeforeMount(async () => {
+  // 投稿一覧の取得
+  await main?.post?.readPosts()
+})
+const posts = computed(() => main?.post?.posts)
+// const {data} = await useAsyncData('posts', () =>
+//   axios
+//     .get(import.meta.env.VITE_MICRO_CMS_API_URL, {
+//       headers: {
+//         'X-MICROCMS-API-KEY': import.meta.env.VITE_MICRO_CMS_API_KEY,
+//       },
+//     })
+//     .then(response => {
+//       return response.data.contents
+//     })
+// )
 </script>
