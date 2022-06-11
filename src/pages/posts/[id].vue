@@ -1,10 +1,10 @@
 <template>
   <div v-if="loading">Loading..</div>
   <div v-else>
-    <pages-box :breadcrumbs="[{ text: data.data.title }]">
-      <v-img :src="data.data.photo.url" />
+    <pages-box :breadcrumbs="[{ text: data.title }]">
+      <v-img :src="data.photo.url" />
 
-      <div class="pb-3" v-html="data.data.description"></div>
+      <div class="pb-3" v-html="data.description"></div>
     </pages-box>
   </div>
 </template>
@@ -43,8 +43,8 @@ const { data } = await useAsyncData('post', () =>
         'X-MICROCMS-API-KEY': import.meta.env.VITE_MICRO_CMS_API_KEY,
       },
     })
-    .catch((e) => {
-      console.log(e)
+    .then(response => {
+      return response.data
     })
 )
 // const post = computed<Post>(() => {

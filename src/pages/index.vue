@@ -2,7 +2,7 @@
   <v-card class="mx-auto">
     <v-container fluid>
       <v-row dense>
-        <v-col v-for="e in data?.data?.contents" :key="e.id" cols="12" md="4">
+        <v-col v-for="e in data" :key="e.id" cols="12" md="4">
           <v-card>
             <NuxtLink :to="`${Url.POSTS}/${e.id}`">
               <v-img :src="e.photo.url" style="width: 92vw; height: 50vh" cover>
@@ -44,15 +44,15 @@ import { Url } from '@/constants/url'
 //   await main?.post?.readPosts()
 // })
 // const posts = computed(() => main?.post?.posts)
-const { data } = await useAsyncData('post', () =>
+const {data} = await useAsyncData('posts', () =>
   axios
     .get(import.meta.env.VITE_MICRO_CMS_API_URL, {
       headers: {
         'X-MICROCMS-API-KEY': import.meta.env.VITE_MICRO_CMS_API_KEY,
       },
     })
-    .catch((e) => {
-      console.log(e)
+    .then(response => {
+      return response.data.contents
     })
 )
 </script>

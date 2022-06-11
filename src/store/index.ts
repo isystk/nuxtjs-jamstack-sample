@@ -2,10 +2,11 @@ import { computed, inject, InjectionKey, provide } from 'vue'
 import { useMainStore } from '@/store/main'
 
 const rootStore = () => {
-  const store = useMainStore()
+  // const store = useMainStore()
   return {
     get main() {
-      return store.getMain()
+      // return store.getMain()
+      return {}
     },
   }
 }

@@ -83,7 +83,7 @@ $ yarn
 $ yarn dev
 ```
 
-## 📦 静的サイトの生成手順
+## 📦 SSGの動作確認
 ```
 $ yarn generate
 $ yarn start

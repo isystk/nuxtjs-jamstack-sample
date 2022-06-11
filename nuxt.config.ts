@@ -4,7 +4,8 @@ import { name, description } from './package.json'
 
 const nuxtConfig = defineNuxtConfig(async (): Promise<NuxtConfig> => {
   return {
-    ssr: false,
+    ssr: false, // ← SPA
+    // mode: 'universal', // ← SSG
     target: 'static', // 静的サイトホスティング
     srcDir: 'src/',
 
