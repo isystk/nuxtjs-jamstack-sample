@@ -8,6 +8,11 @@ const nuxtConfig = defineNuxtConfig(async (): Promise<NuxtConfig> => {
     target: 'static', // 静的サイトホスティング
     srcDir: 'src/',
 
+    // GitHub Pages で参照できるようにコンテンストルートを指定する
+    app: {
+      baseURL: '/nuxtjs-jamstack-sample/',
+    },
+
     // 環境変数
     publicRuntimeConfig: {
       APP_NAME: name,
@@ -43,13 +48,6 @@ const nuxtConfig = defineNuxtConfig(async (): Promise<NuxtConfig> => {
           )
         return pages
       })(),
-      // routes: [
-      //   '/posts/sjj40pwoh',
-      //   '/posts/oejgol6u6n0',
-      //   '/posts/avsacv153g',
-      //   '/posts/xzauuqe5-3',
-      //   '/posts/onu0zqn5d',
-      // ],
     },
     intlify: {
       localeDir: 'locales',

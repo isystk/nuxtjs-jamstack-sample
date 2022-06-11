@@ -17,9 +17,7 @@
     "test:coverage": "vitest run --coverage",
     "prepare": "husky install",
     "storybook": "start-storybook -p 6006",
-    "build-storybook": "build-storybook",
-    "deploy:production": "now -t $VERCEL_TOKEN -c --prod",
-    "deploy:preview": "now -t $VERCEL_TOKEN -c"
+    "build-storybook": "build-storybook"
   },
   "lint-staged": {
     "*.{js,jsx,ts,tsx}": [
@@ -63,7 +61,6 @@
     "lint-staged": "^13.0.1",
     "lodash": "^4.17.21",
     "moment": "^2.29.3",
-    "now": "^21.0.1",
     "nuxt": "3.0.0-rc.3",
     "pinia": "^2.0.14",
     "postcss": "^8.4.14",

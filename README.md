@@ -51,13 +51,13 @@ SSGは、Static Site Generatorの略称で、静的サイト生成をする仕�
 - Nuxt.js
 - Typescript
 - Tailwind CSS
-- Firebase Hosting
 - Github Actions
+- Github Pages
 - MicroCMS
 
 ## 🌐 Demo
 
-https://nuxtjs-jamstack-sample.web.app
+https://isystk.github.io/nuxtjs-jamstack-sample/
 
 ![app](./app.png)
 
@@ -89,31 +89,19 @@ $ yarn generate
 $ yarn start
 ```
 
-## 💬 Firebaseへのデプロイ手順
-```
-$ npm install -g firebase-tools
-$ firebase login
-（Firebase Hosting未設定の場合）
-$ firebase init hosting
-（Firebase Hosting設定済の場合）
-$ firebase init hosting:github
-$ firebase deploy
-
-https://nuxtjs-jamstack-sample.web.app
-
-`FIREBASE_TOKEN` の確認
-$ firebase login:ci
-
-GithubプロジェクトのActions secrets から、「FIREBASE_TOKEN」の変数名で上記のトークンを追加する。
-```
-
-
 ## 🎨 参考
 
 | プロジェクト| 概要|
 | :---------------------------------------| :-------------------------------|
+| [Nuxt3 Docs](https://v3.nuxtjs.org/guide/concepts/introduction)| Nuxt3 Docs |
+| [Vuetify 3 Beta](https://next.vuetifyjs.com/en/getting-started/installation/)| Vuetify 3 Beta |
+| [Material Design Icons](https://pictogrammers.github.io/@mdi/font/2.0.46/)| Material Design Icons |
+| [Tailwind CSS](https://tailwindcss.com/docs/installation)| Tailwind CSS |
+| [vee-validate](https://vee-validate.logaretm.com/v4/guide/components)| vee-validate |
+| [husky v6 のインストール方法と使い方。lint-staged も導入して、品質を保とう](https://fwywd.com/tech/husky-setup)| husky v6 のインストール方法と使い方。lint-staged も導入して、品質を保とう |
 | [microCMS + NuxtでJamstackブログを作ってみよう](https://blog.microcms.io/microcms-nuxt-jamstack-blog/)| microCMS + NuxtでJamstackブログを作ってみよう|
 | [Nuxt.js + microCMS + Firebase + GitHub Actions で JAMstack なブログに移行した](https://ryo620.org/post/jamstack-blog/)| Nuxt.js + microCMS + Firebase + GitHub Actions で JAMstack なブログに移行した|
+| [Nuxt3のSSGなサイトをGitHub Pagesで公開するだけなのにハマった](https://qiita.com/kira_puka/items/46a10a5dd353c1d4ad4b)| Nuxt3のSSGなサイトをGitHub Pagesで公開するだけなのにハマった|
 
 ## 🎫 Licence
 
