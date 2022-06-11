@@ -2,16 +2,12 @@
   <v-card class="mx-auto">
     <v-container fluid>
       <v-row dense>
-        <v-col v-for="data in posts" :key="data.id" cols="12" md="4">
+        <v-col v-for="e in data?.data?.contents" :key="e.id" cols="12" md="4">
           <v-card>
-            <NuxtLink :to="`${Url.POSTS}/${data.id}`">
-              <v-img
-                :src="data.photo.url"
-                style="width: 92vw; height: 50vh"
-                cover
-              >
+            <NuxtLink :to="`${Url.POSTS}/${e.id}`">
+              <v-img :src="e.photo.url" style="width: 92vw; height: 50vh" cover>
                 <v-card-title class="text-white">
-                  {{ data.title }}
+                  {{ e.title }}
                 </v-card-title>
               </v-img>
 
@@ -35,23 +31,28 @@
 <script setup lang="ts">
 import { computed, onBeforeMount } from 'vue'
 import * as _ from 'lodash'
+import axios from 'axios'
 import { useMeta } from 'nuxt/app'
 useMeta({
   title: 'Top',
 })
 import { Url } from '@/constants/url'
-import { injectStore } from '@/store'
-const main = injectStore()
-onBeforeMount(async () => {
-  // 投稿一覧の取得
-  await main?.post?.readPosts()
-})
-const posts = computed(() => main?.post?.posts)
-// const { contents } = await useAsyncData('post', () => $fetch(import.meta.env.VITE_MICRO_CMS_API_URL, {
-//   headers: {
-//     'X-MICROCMS-API-KEY': import.meta.env.VITE_MICRO_CMS_API_KEY
-//   }
-// }).catch((e) => {
-//   console.log(e)
-// }));
+// import { injectStore } from '@/store'
+// const main = injectStore()
+// onBeforeMount(async () => {
+//   // 投稿一覧の取得
+//   await main?.post?.readPosts()
+// })
+// const posts = computed(() => main?.post?.posts)
+const { data } = await useAsyncData('post', () =>
+  axios
+    .get(import.meta.env.VITE_MICRO_CMS_API_URL, {
+      headers: {
+        'X-MICROCMS-API-KEY': import.meta.env.VITE_MICRO_CMS_API_KEY,
+      },
+    })
+    .catch((e) => {
+      console.log(e)
+    })
+)
 </script>
