@@ -10,9 +10,9 @@ const nuxtConfig = defineNuxtConfig(async (): Promise<NuxtConfig> => {
     target: 'static', // 静的サイトホスティング
     srcDir: 'src/',
 
-    // GitHub Pages で参照できるようにコンテンストルートを指定する
+    // GitHub Pages で参照できるようにコキテクストルートを指定する
     app: {
-      // baseURL: SITE_URL,
+      baseURL: SITE_URL,
       cdnURL: `https://isystk.github.io${SITE_URL}`,
     },
 
@@ -36,21 +36,21 @@ const nuxtConfig = defineNuxtConfig(async (): Promise<NuxtConfig> => {
       transpile: ['vuetify', 'moment'],
     },
     generate: {
-      // routes: await (async () => {
-      //   const pages = await axios
-      //     .get(process.env.VITE_MICRO_CMS_API_URL, {
-      //       headers: {
-      //         'X-MICROCMS-API-KEY': process.env.VITE_MICRO_CMS_API_KEY,
-      //       },
-      //     })
-      //     .then((res) =>
-      //       res.data.contents.map((content) => ({
-      //         route: `/posts/${content.id}`,
-      //         payload: content,
-      //       }))
-      //     )
-      //   return pages
-      // })(),
+      routes: await (async () => {
+        const pages = await axios
+          .get(process.env.VITE_MICRO_CMS_API_URL, {
+            headers: {
+              'X-MICROCMS-API-KEY': process.env.VITE_MICRO_CMS_API_KEY,
+            },
+          })
+          .then((res) =>
+            res.data.contents.map((content) => ({
+              route: `/posts/${content.id}`,
+              payload: content,
+            }))
+          )
+        return pages
+      })(),
     },
     intlify: {
       localeDir: 'locales',
