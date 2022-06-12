@@ -13,7 +13,7 @@ const route = useRoute()
 
 const { data } = useAsyncData(`posts/${route.params.id}`, async () => {
   // SSGの場合は、Generate時に1度だけここが処理される
-  
+
   // 投稿詳細の取得
   // const res = await axios.get(
   //   `${import.meta.env.VITE_MICRO_CMS_API_URL}/${route.params.id}`,

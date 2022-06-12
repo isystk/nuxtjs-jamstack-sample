@@ -38,7 +38,7 @@ const main = injectStore()
 
 const { data } = useAsyncData('posts', async () => {
   // SSGの場合は、Generate時に1度だけここが処理される
-  
+
   // 投稿一覧の取得
   // const res = await axios.get(import.meta.env.VITE_MICRO_CMS_API_URL, {
   //   headers: {

@@ -12,10 +12,10 @@ const nuxtConfig = defineNuxtConfig(async (): Promise<NuxtConfig> => {
 
     // GitHub Pages で参照できるようにコンテキストルートを指定する
     // https://qiita.com/kira_puka/items/46a10a5dd353c1d4ad4b
-    // app: {
-    //   baseURL: SITE_URL,
-    //   cdnURL: `https://isystk.github.io${SITE_URL}`,
-    // },
+    app: {
+      baseURL: SITE_URL,
+      cdnURL: `https://isystk.github.io${SITE_URL}`,
+    },
 
     // 環境変数
     publicRuntimeConfig: {
