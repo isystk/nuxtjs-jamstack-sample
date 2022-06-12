@@ -4,15 +4,26 @@ import { name, description } from './package.json'
 
 const nuxtConfig = defineNuxtConfig(async (): Promise<NuxtConfig> => {
   return {
-    ssr: false, // ← SPA
-    // mode: 'universal', // ← SSG
+    // ssr: false, // ← SPA
+    ssr: true, // ← SSG
     target: 'static', // 静的サイトホスティング
     srcDir: 'src/',
 
+    // typescript: {
+    //   shim: false,
+    // },
+
+    // nitro: {
+    //   prerender: {
+    //     crawlLinks: true,
+    //     routes: ['/login'],
+    //   },
+    // },
+
     // GitHub Pages で参照できるようにコンテンストルートを指定する
-    app: {
-      baseURL: '/nuxtjs-jamstack-sample/',
-    },
+    // app: {
+    //   baseURL: '/nuxtjs-jamstack-sample/',
+    // },
 
     // 環境変数
     publicRuntimeConfig: {
@@ -42,10 +53,15 @@ const nuxtConfig = defineNuxtConfig(async (): Promise<NuxtConfig> => {
       //       },
       //     })
       //     .then((res) =>
-      //       res.data.contents.map((content) => ({
-      //         route: `/posts/${content.id}`,
-      //         payload: content,
-      //       }))
+      //       res.data.contents.map((content) => {
+      //         console.log("res", content);
+      //         return {
+      //           route: `/posts/${content.id}`,
+      //           payload: {
+      //             data: content
+      //           }
+      //         }
+      //       })
       //     )
       //   return pages
       // })(),

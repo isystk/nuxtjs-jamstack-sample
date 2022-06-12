@@ -13,6 +13,8 @@ module.exports = {
     definePageMeta: 'readonly',
     useHead: 'readonly',
     useAsyncData: 'readonly',
+    useLazyAsyncData: 'readonly',
+    $fetch: 'readonly',
   },
   parser: 'vue-eslint-parser',
   parserOptions: {

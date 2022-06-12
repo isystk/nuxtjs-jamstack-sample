@@ -54,7 +54,7 @@ const props = defineProps<{
   store: MainService
 }>()
 
-const router = useRouter()
+// const router = useRouter()
 const drawer = ref(false)
 
 const toggleMenu = () => {
@@ -63,16 +63,11 @@ const toggleMenu = () => {
 
 const items = computed(() => {
   return [
-    {
-      text: 'ログイン',
-      icon: 'mdi-login-variant',
-      func: () => router.push(Url.LOGIN),
-    },
-    {
-      text: 'マイページ',
-      icon: 'mdi-account',
-      func: () => router.push(Url.MEMBER),
-    },
+    // {
+    //   text: 'ログイン',
+    //   icon: 'mdi-login-variant',
+    //   func: () => router.push(Url.LOGIN),
+    // }
   ]
 })
 </script>

@@ -31,21 +31,20 @@
         </div>
       </div>
     </VeeForm>
-    <NuxtLink :to="Url.SIGNUP"> 会員登録はこちら </NuxtLink>
   </pages-box>
 </template>
 
 <script setup lang="ts">
-import { useMeta, useRouter } from 'nuxt/app'
-useMeta({
-  title: 'ログイン',
-})
+// import { useMeta, useRouter } from 'nuxt/app'
+// useMeta({
+//   title: 'ログイン',
+// })
 import { Form as VeeForm, Field, ErrorMessage } from 'vee-validate'
 import * as Yup from 'yup'
 import { injectStore } from '@/store'
 const main = injectStore()
 import { Url } from '@/constants/url'
-const router = useRouter()
+// const router = useRouter()
 const schema = Yup.object().shape({
   email: Yup.string()
     .required('メールアドレスを入力してください')
