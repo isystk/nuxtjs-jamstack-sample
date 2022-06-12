@@ -47,7 +47,6 @@
 
 <script setup lang="ts">
 import { computed, ref } from 'vue'
-import { useRouter } from 'nuxt/app'
 import { Url } from '@/constants/url'
 import MainService from '@/services/main'
 const props = defineProps<{
@@ -67,11 +66,6 @@ const items = computed(() => {
       text: 'ログイン',
       icon: 'mdi-login-variant',
       func: () => router.push(Url.LOGIN),
-    },
-    {
-      text: 'マイページ',
-      icon: 'mdi-account',
-      func: () => router.push(Url.MEMBER),
     },
   ]
 })

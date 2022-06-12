@@ -31,12 +31,10 @@
         </div>
       </div>
     </VeeForm>
-    <NuxtLink :to="Url.SIGNUP"> 会員登録はこちら </NuxtLink>
   </pages-box>
 </template>
 
 <script setup lang="ts">
-import { useMeta, useRouter } from 'nuxt/app'
 useMeta({
   title: 'ログイン',
 })

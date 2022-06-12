@@ -4,15 +4,15 @@ import { name, description } from './package.json'
 
 const nuxtConfig = defineNuxtConfig(async (): Promise<NuxtConfig> => {
   return {
-    ssr: false, // ← SPA
-    // mode: 'universal', // ← SSG
+    // ssr: false, // ← SPA
+    ssr: true, // ← SSG
     target: 'static', // 静的サイトホスティング
     srcDir: 'src/',
 
     // GitHub Pages で参照できるようにコンテンストルートを指定する
-    app: {
-      baseURL: '/nuxtjs-jamstack-sample/',
-    },
+    // app: {
+    //   baseURL: '/nuxtjs-jamstack-sample/',
+    // },
 
     // 環境変数
     publicRuntimeConfig: {
