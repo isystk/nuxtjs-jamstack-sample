@@ -1,17 +1,19 @@
 import { defineNuxtConfig, NuxtConfig } from 'nuxt'
 import axios from 'axios'
 import { name, description } from './package.json'
+const SITE_URL = '/nuxtjs-jamstack-sample/'
 
 const nuxtConfig = defineNuxtConfig(async (): Promise<NuxtConfig> => {
   return {
-    ssr: false, // ← SPA
-    // ssr: true, // ← SSG
+    // ssr: false, // ← SPA
+    ssr: true, // ← SSG
     target: 'static', // 静的サイトホスティング
     srcDir: 'src/',
 
     // GitHub Pages で参照できるようにコンテンストルートを指定する
     app: {
-      baseURL: '/nuxtjs-jamstack-sample/',
+      // baseURL: SITE_URL,
+      cdnURL: `https://isystk.github.io${SITE_URL}`,
     },
 
     // 環境変数
