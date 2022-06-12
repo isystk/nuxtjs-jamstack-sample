@@ -4,13 +4,9 @@
       <pages-logo />
       <v-spacer />
 
-      <NuxtLink :to="Url.LOGIN" class="invisible md:visible">
-        ログイン
-      </NuxtLink>
-
       <v-app-bar-nav-icon
         variant="text"
-        class="visible md:invisible"
+        class="visible"
         @click.stop="toggleMenu"
       />
     </v-app-bar>
@@ -53,7 +49,6 @@ const props = defineProps<{
   store: MainService
 }>()
 
-const router = useRouter()
 const drawer = ref(false)
 
 const toggleMenu = () => {
@@ -65,7 +60,7 @@ const items = computed(() => {
     {
       text: 'ログイン',
       icon: 'mdi-login-variant',
-      func: () => router.push(Url.LOGIN),
+      func: () => location.href = Url.LOGIN
     },
   ]
 })
