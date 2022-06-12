@@ -42,15 +42,10 @@ const nuxtConfig = defineNuxtConfig(async (): Promise<NuxtConfig> => {
       //       },
       //     })
       //     .then((res) =>
-      //       res.data.contents.map((content) => {
-      //         console.log("res", content);
-      //         return {
-      //           route: `/posts/${content.id}`,
-      //           payload: {
-      //             data: content
-      //           }
-      //         }
-      //       })
+      //       res.data.contents.map((content) => ({
+      //         route: `/posts/${content.id}`,
+      //         payload: content,
+      //       }))
       //     )
       //   return pages
       // })(),
