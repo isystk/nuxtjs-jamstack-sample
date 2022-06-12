@@ -1,12 +1,9 @@
 <template>
-  <div v-if="loading">Loading..</div>
-  <div v-else>
-    <pages-box :breadcrumbs="[{ text: data.title }]">
-      <v-img :src="data.photo.url" />
+  <pages-box :breadcrumbs="[{ text: data.title }]">
+    <v-img :src="data.photo.url" />
 
-      <div class="pb-3" v-html="data.description"></div>
-    </pages-box>
-  </div>
+    <div class="pb-3" v-html="data.description"></div>
+  </pages-box>
 </template>
 <script lang="ts" setup>
 import { Url } from '@/constants/url'
@@ -18,7 +15,7 @@ import { onBeforeMount, computed, ref, reactive } from 'vue'
 const route = useRoute()
 
 // const id = ref<string>()
-const loading = ref<boolean>(true)
+// const loading = ref<boolean>(true)
 //
 // onBeforeMount(async () => {
 //   id.value = route.params.id + ''
@@ -53,7 +50,6 @@ const { data } = useAsyncData(`posts/${route.params.id}`, async () => {
       },
     }
   )
-  loading.value = false
   return res.data
 })
 </script>
