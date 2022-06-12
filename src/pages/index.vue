@@ -31,11 +31,10 @@
 import { Url } from '@/constants/url'
 // import { computed, onBeforeMount } from 'vue'
 // import * as _ from 'lodash'
-// import axios from 'axios'
-// import { useMeta } from 'nuxt/app'
-// useMeta({
-//   title: 'Top',
-// })
+import axios from 'axios'
+useMeta({
+  title: 'Top',
+})
 // import { injectStore } from '@/store'
 // const main = injectStore()
 // onBeforeMount(async () => {
@@ -45,10 +44,11 @@ import { Url } from '@/constants/url'
 // const posts = computed(() => main?.post?.posts)
 
 const { data } = useAsyncData('posts', async () => {
-  return await $fetch(import.meta.env.VITE_MICRO_CMS_API_URL, {
+  const res = await axios.get(import.meta.env.VITE_MICRO_CMS_API_URL, {
     headers: {
       'X-MICROCMS-API-KEY': import.meta.env.VITE_MICRO_CMS_API_KEY,
     },
   })
+  return res.data
 })
 </script>

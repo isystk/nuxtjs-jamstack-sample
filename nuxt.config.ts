@@ -9,17 +9,6 @@ const nuxtConfig = defineNuxtConfig(async (): Promise<NuxtConfig> => {
     target: 'static', // 静的サイトホスティング
     srcDir: 'src/',
 
-    // typescript: {
-    //   shim: false,
-    // },
-
-    // nitro: {
-    //   prerender: {
-    //     crawlLinks: true,
-    //     routes: ['/login'],
-    //   },
-    // },
-
     // GitHub Pages で参照できるようにコンテンストルートを指定する
     // app: {
     //   baseURL: '/nuxtjs-jamstack-sample/',

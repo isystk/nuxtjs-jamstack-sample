@@ -1,5 +1,5 @@
 <template>
-  <div v-if="!data">Loading..</div>
+  <div v-if="loading">Loading..</div>
   <div v-else>
     <pages-box :breadcrumbs="[{ text: data.title }]">
       <v-img :src="data.photo.url" />
@@ -10,15 +10,15 @@
 </template>
 <script lang="ts" setup>
 import { Url } from '@/constants/url'
-// import { onBeforeMount, computed, ref, reactive } from 'vue'
+import axios from 'axios'
+import { onBeforeMount, computed, ref, reactive } from 'vue'
 // import { Post } from '@/services/models'
 // import { injectStore } from '@/store'
-// import { useMeta, useRoute } from 'nuxt/app'
 // const main = injectStore()
-// const route = useRoute()
-//
+const route = useRoute()
+
 // const id = ref<string>()
-// const loading = ref<boolean>(true)
+const loading = ref<boolean>(true)
 //
 // onBeforeMount(async () => {
 //   id.value = route.params.id + ''
@@ -44,11 +44,16 @@ import { Url } from '@/constants/url'
 //   return d
 // })
 
-const { data } = useAsyncData('posts', async () => {
-  return await $fetch(`${import.meta.env.VITE_MICRO_CMS_API_URL}/avsacv153g`, {
-    headers: {
-      'X-MICROCMS-API-KEY': import.meta.env.VITE_MICRO_CMS_API_KEY,
-    },
-  })
+const { data } = useAsyncData(`posts/${route.params.id}`, async () => {
+  const res = await axios.get(
+    `${import.meta.env.VITE_MICRO_CMS_API_URL}/${route.params.id}`,
+    {
+      headers: {
+        'X-MICROCMS-API-KEY': import.meta.env.VITE_MICRO_CMS_API_KEY,
+      },
+    }
+  )
+  loading.value = false
+  return res.data
 })
 </script>

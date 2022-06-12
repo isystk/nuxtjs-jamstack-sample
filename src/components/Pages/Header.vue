@@ -47,14 +47,13 @@
 
 <script setup lang="ts">
 import { computed, ref } from 'vue'
-import { useRouter } from 'nuxt/app'
 import { Url } from '@/constants/url'
 import MainService from '@/services/main'
 const props = defineProps<{
   store: MainService
 }>()
 
-// const router = useRouter()
+const router = useRouter()
 const drawer = ref(false)
 
 const toggleMenu = () => {
@@ -63,11 +62,11 @@ const toggleMenu = () => {
 
 const items = computed(() => {
   return [
-    // {
-    //   text: 'ログイン',
-    //   icon: 'mdi-login-variant',
-    //   func: () => router.push(Url.LOGIN),
-    // }
+    {
+      text: 'ログイン',
+      icon: 'mdi-login-variant',
+      func: () => router.push(Url.LOGIN),
+    },
   ]
 })
 </script>
