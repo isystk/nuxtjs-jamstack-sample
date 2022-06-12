@@ -11,10 +11,11 @@ const nuxtConfig = defineNuxtConfig(async (): Promise<NuxtConfig> => {
     srcDir: 'src/',
 
     // GitHub Pages で参照できるようにコンテキストルートを指定する
-    app: {
-      baseURL: SITE_URL,
-      cdnURL: `https://isystk.github.io${SITE_URL}`,
-    },
+    // https://qiita.com/kira_puka/items/46a10a5dd353c1d4ad4b
+    // app: {
+    //   baseURL: SITE_URL,
+    //   cdnURL: `https://isystk.github.io${SITE_URL}`,
+    // },
 
     // 環境変数
     publicRuntimeConfig: {
@@ -36,6 +37,7 @@ const nuxtConfig = defineNuxtConfig(async (): Promise<NuxtConfig> => {
       transpile: ['vuetify', 'moment'],
     },
     generate: {
+      // https://www.dkrk-blog.net/vue-nuxt/nuxt-generate-routes
       routes: await (async () => {
         const pages = await axios
           .get(process.env.VITE_MICRO_CMS_API_URL, {
@@ -44,12 +46,13 @@ const nuxtConfig = defineNuxtConfig(async (): Promise<NuxtConfig> => {
             },
           })
           .then((res) =>
-            res.data.contents.map((content) => ({
-              route: `${SITE_URL}posts/${content.id}`,
-              payload: {
-                data: content,
-              },
-            }))
+            res.data.contents.map((content) => {
+              // return ({
+              //   route: `/posts/${content.id}`,
+              //   payload: content
+              // })
+              return `/posts/${content.id}`
+            })
           )
         return pages
       })(),
