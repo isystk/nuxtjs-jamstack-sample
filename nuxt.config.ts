@@ -10,7 +10,7 @@ const nuxtConfig = defineNuxtConfig(async (): Promise<NuxtConfig> => {
     target: 'static', // 静的サイトホスティング
     srcDir: 'src/',
 
-    // GitHub Pages で参照できるようにコキテクストルートを指定する
+    // GitHub Pages で参照できるようにコンテキストルートを指定する
     app: {
       baseURL: SITE_URL,
       cdnURL: `https://isystk.github.io${SITE_URL}`,
@@ -45,8 +45,10 @@ const nuxtConfig = defineNuxtConfig(async (): Promise<NuxtConfig> => {
           })
           .then((res) =>
             res.data.contents.map((content) => ({
-              route: `/posts/${content.id}`,
-              payload: content,
+              route: `${SITE_URL}posts/${content.id}`,
+              payload: {
+                data: content,
+              },
             }))
           )
         return pages
