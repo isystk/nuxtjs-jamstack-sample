@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "nuxi dev",
     "build": "nuxi build",
-    "generate": "nuxi generate",
+    "generate": "NODE_OPTIONS="--max-old-space-size=8192" nuxi generate",
     "start": "nuxi preview",
     "allupdate": "yarn upgrade-interactive --latest",
     "lint": "eslint --ext .js,.ts,.vue .",
